@@ -1,0 +1,98 @@
+{
+  "kind": "enum",
+  "variants": [
+    {
+      "name": "NewUser",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "UpdateUser",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "NewListing",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProperty",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "MintListing",
+      "fields": [
+        {
+          "name": "wallet",
+          "type": "publicKey"
+        },
+        {
+          "name": "property",
+          "type": "publicKey"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "mint_price",
+          "type": "u64"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    }
+  ]
+}

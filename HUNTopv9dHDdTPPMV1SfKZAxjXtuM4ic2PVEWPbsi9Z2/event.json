@@ -1,0 +1,56 @@
+{
+  "kind": "enum",
+  "variants": [
+    {
+      "name": "NewParticipation",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "CollectParticipationReward",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "index",
+          "type": "u8"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "RecallParticipation",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,980 @@
+{
+  "version": "0.0.7",
+  "name": "liquidprop",
+  "instructions": [
+    {
+      "name": "createProject",
+      "accounts": [
+        {
+          "name": "key",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "honeycombProject",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "projectVault",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "hiveControlProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createUser",
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clockSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateUserArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "updateUserKind",
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clockSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "userKind",
+          "type": {
+            "defined": "UserKind"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addWallet",
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "walletResolver",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clockSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createListing",
+      "accounts": [
+        {
+          "name": "honeycombProject",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "property",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "currency",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "metadata",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currencyManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clockSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateListingArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addGuards",
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "property",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddGuardsArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "publishListing",
+      "accounts": [
+        {
+          "name": "honeycombProject",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currency",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadata",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "property",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currencyManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "uri",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "mintListing",
+      "accounts": [
+        {
+          "name": "honeycombProject",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "projectVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "property",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currency",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "holderAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "walletResolver",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currencyManagerProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "listProperty",
+      "accounts": [
+        {
+          "name": "honeycombProject",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "property",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "currency",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "holderAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "walletResolver",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Project",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "honeycombProject",
+            "type": "publicKey"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "vault",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Property",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "project",
+            "type": "publicKey"
+          },
+          {
+            "name": "currency",
+            "type": "publicKey"
+          },
+          {
+            "name": "price",
+            "type": "u64"
+          },
+          {
+            "name": "supply",
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": "PropertyStatus"
+            }
+          },
+          {
+            "name": "publishedAt",
+            "type": "i64"
+          },
+          {
+            "name": "sellerGuards",
+            "type": {
+              "vec": {
+                "defined": "UserGuards"
+              }
+            }
+          },
+          {
+            "name": "buyerGuards",
+            "type": {
+              "vec": {
+                "defined": "UserGuards"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "project",
+            "type": "publicKey"
+          },
+          {
+            "name": "offchainId",
+            "type": "u64"
+          },
+          {
+            "name": "kind",
+            "type": {
+              "defined": "UserKind"
+            }
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "wallets",
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "WalletResolver",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "user",
+            "type": "publicKey"
+          },
+          {
+            "name": "wallet",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateListingArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "type": "u64"
+          },
+          {
+            "name": "supply",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddGuardsArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "isSeller",
+            "type": "bool"
+          },
+          {
+            "name": "guards",
+            "type": {
+              "vec": {
+                "defined": "UserGuards"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateUserArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "offchainId",
+            "type": "u64"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserGuards",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userKind",
+            "type": {
+              "defined": "UserKind"
+            }
+          },
+          {
+            "name": "guards",
+            "type": {
+              "defined": "Guards"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Guards",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "holdTill",
+            "type": "i64"
+          },
+          {
+            "name": "minAssetAge",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PropertyStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Unpublished"
+          },
+          {
+            "name": "Published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserKind",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Waitlist"
+          },
+          {
+            "name": "InternationalInvestor"
+          },
+          {
+            "name": "USAccreditedInvestor"
+          },
+          {
+            "name": "USNonAccreditedUser"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Event",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "NewUser",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateUser",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "NewListing",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateProperty",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "MintListing",
+            "fields": [
+              {
+                "name": "wallet",
+                "type": "publicKey"
+              },
+              {
+                "name": "property",
+                "type": "publicKey"
+              },
+              {
+                "name": "amount",
+                "type": "u64"
+              },
+              {
+                "name": "mint_price",
+                "type": "u64"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Overflow",
+      "msg": "Opertaion overflowed"
+    },
+    {
+      "code": 6001,
+      "name": "UserNotAllowedToInvest",
+      "msg": "User is not allowed to invest"
+    },
+    {
+      "code": 6002,
+      "name": "PropertyLocked",
+      "msg": "Can not invest in property right now"
+    },
+    {
+      "code": 6003,
+      "name": "MintSupplyExceed",
+      "msg": "Mint supply exceeded"
+    },
+    {
+      "code": 6004,
+      "name": "UnallowedSeller",
+      "msg": "You are not allowed to sell"
+    },
+    {
+      "code": 6005,
+      "name": "UnallowedBuyer",
+      "msg": "You are not allowed to buy"
+    },
+    {
+      "code": 6006,
+      "name": "UnallowedTrade",
+      "msg": "You are not allowed to buy"
+    }
+  ],
+  "metadata": {
+    "address": "CFPdcKNf4bP74gXAtUooGDHbGiMCJqq19z2FVDeVJ549",
+    "origin": "anchor",
+    "binaryVersion": "0.26.0",
+    "libVersion": "0.26.0"
+  }
+}
