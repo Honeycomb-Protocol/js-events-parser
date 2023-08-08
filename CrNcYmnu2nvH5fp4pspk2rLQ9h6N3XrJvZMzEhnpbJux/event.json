@@ -1,0 +1,73 @@
+{
+  "kind": "enum",
+  "variants": [
+    {
+      "name": "NewCurrency",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "UpdateCurrency",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "NewHolderAccount",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "UpdateHolderAccount",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    }
+  ]
+}

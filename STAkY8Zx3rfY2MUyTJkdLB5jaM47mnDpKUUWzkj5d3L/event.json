@@ -1,0 +1,114 @@
+{
+  "kind": "enum",
+  "variants": [
+    {
+      "name": "NewNft",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "NewStaker",
+      "fields": [
+        {
+          "name": "address",
+          "type": "publicKey"
+        },
+        {
+          "name": "info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "Stake",
+      "fields": [
+        {
+          "name": "nft_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "nft_info",
+          "type": "bytes"
+        },
+        {
+          "name": "staker_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "staker_info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "Unstake",
+      "fields": [
+        {
+          "name": "nft_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "nft_info",
+          "type": "bytes"
+        },
+        {
+          "name": "staker_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "staker_info",
+          "type": "bytes"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "ClaimRewards",
+      "fields": [
+        {
+          "name": "nft_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "nft_info",
+          "type": "bytes"
+        },
+        {
+          "name": "staker_address",
+          "type": "publicKey"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "timestamp",
+          "type": "i64"
+        }
+      ]
+    }
+  ]
+}
