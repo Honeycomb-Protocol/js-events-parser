@@ -1,0 +1,3512 @@
+{
+  "version": "0.1.26",
+  "name": "hpl_hive_control",
+  "instructions": [
+    {
+      "name": "initPublicInfo",
+      "docs": [
+        "This function initializes the public information for the Honeycomb Protocol.",
+        "It is called when the program is deployed and can be accessed by only the program authority."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["Public info account"]
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The update authority of the program"]
+        },
+        {
+          "name": "programData",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Program data accout"]
+        },
+        {
+          "name": "program",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Program accounnt"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "setPublicInfo",
+      "docs": [
+        "This function sets the public information for the Honeycomb Protocol.",
+        "It is called when the program authority needs to update the public information."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["Public info account"]
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The update authority of the program"]
+        },
+        {
+          "name": "programData",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Program data accout"]
+        },
+        {
+          "name": "program",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Program accounnt"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": {
+            "defined": "SetPublicInfoArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "setAuthDriver",
+      "docs": [
+        "Sets the authentication driver with the provided environment string and arguments.",
+        "",
+        "This function sets the authentication driver for the Honeycomb Protocol.",
+        "It is called when the program authority needs to update the authentication driver."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authDriver",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "programData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "program",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": {
+            "defined": "SetAuthDriverArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "createProject",
+      "docs": [
+        "This function creates a new project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "key",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The unique key of the project."]
+        },
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that will pay for the project."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateProjectArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "changeDriver",
+      "docs": [
+        "This function changes the driver authority for the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "driver",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The driver for this project."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addRemoveCriteria",
+      "docs": [
+        "This function changes the driver authority for the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddRemoveCriteriaArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addRemoveService",
+      "docs": [
+        "This function adds or removes a criteria to/from the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddRemoveServiceArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addRemoveProfileDataConfig",
+      "docs": [
+        "This function adds or removes a service to/from the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddRemoveProfileDataConfigArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "clearProfileDataConfig",
+      "docs": [
+        "This function clears the profile data configuration for the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addAddressContainerToProject",
+      "docs": [
+        "This function adds an address container to the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "addressContainer",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The address container account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddAddressContainerToProjectArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addMintAddressesToAddressContainer",
+      "docs": [
+        "This function adds multiple mint addresses to the specified address container in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project accounnt"]
+        },
+        {
+          "name": "addressContainer",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The address container account"]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority state account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The (delegate) authority of the project"]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SYSVAR RENT ACCOUNT"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddMintAddressesToAddressContainerArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "createDelegateAuthority",
+      "docs": [
+        "This function adds multiple mint addresses to the specified address container in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The delegate authority PDA containing info about permissions"
+          ]
+        },
+        {
+          "name": "delegate",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The wallet receiving delegate authority."]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateDelegateAuthorityArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addRemoveDelegation",
+      "docs": [
+        "This function adds or removes a delegation for the specified project in the Honeycomb Protocol."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The project account."]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The delegate authority PDA containing info about permissions"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddRemoveDelegationArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "initializeUser",
+      "docs": ["This function registers a new user in the Honeycomb Protocol."],
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The User accout"]
+        },
+        {
+          "name": "walletResolver",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The wallet resolver for the primary wallet"]
+        },
+        {
+          "name": "didData",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The decentralized identity account"]
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The primary wallet of the user"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "solDidProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SOL DID PROGRAM"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SYSVAR RENT ACCOUNT"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "InitializeUserArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "closeUser",
+      "docs": [
+        "This function closes an existing user in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user accout"]
+        },
+        {
+          "name": "walletResolver",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The wallet resolver of the primary wallet"]
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The primary wallet"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "updateUser",
+      "docs": [
+        "This function updates user info in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The public info account"]
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user account"]
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["One of the user's wallet"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": {
+            "defined": "UpdateUserArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "addWallet",
+      "docs": [
+        "This function adds a new wallet to the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The public info account"]
+        },
+        {
+          "name": "walletResolver",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The wallet resolver for the new wallet"]
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user accout"]
+        },
+        {
+          "name": "didData",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user's did data account"]
+        },
+        {
+          "name": "newWallet",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The new wallet being added to the user account"]
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["One of the user's wallets or driver"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "solDidProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Sol DID Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SYSVAR RENT"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "deleteWallet",
+      "docs": [
+        "This function deletes a wallet from the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "publicInfo",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The public info account"]
+        },
+        {
+          "name": "walletResolver",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The wallet resolver of the wallet being removed"]
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user account"]
+        },
+        {
+          "name": "didData",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The user's did data account"]
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The wallet being removed"]
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["One of the user's wallets or driver"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program"]
+        },
+        {
+          "name": "solDidProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["Sol DID Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SYSVAR RENT"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        }
+      ],
+      "args": [
+        {
+          "name": "env",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "createProfile",
+      "docs": [
+        "This function creates a new profile for the user in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The user state account"]
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "didData",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's decentralized identity data account"]
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["One of the user's wallet"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "solDidProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SOL DID Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateProfileArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteProfile",
+      "docs": [
+        "This function deletes the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The user state account"]
+        },
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "didData",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's decentralized identity data account"]
+        },
+        {
+          "name": "wallet",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["One of the user's wallet"]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["System Program."]
+        },
+        {
+          "name": "solDidProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SOL DID Program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE INSTRUCTIONS SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addProfileData",
+      "docs": [
+        "This function adds profile data to the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "merkleTree",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] The merkle tree account"]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority (or delegate) of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "compressionProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SPL Account Compression program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE Instructions SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "AddProfileDataArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "modifyProfileData",
+      "docs": [
+        "This function modifies profile data in the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "merkleTree",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] The merkle tree account"]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority (or delegate) of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "compressionProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SPL Account Compression program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE Instructions SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "ModifyProfileDataArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "removeProfileData",
+      "docs": [
+        "This function removes profile data from the user's profile in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "merkleTree",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] The merkle tree account"]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority (or delegate) of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "compressionProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SPL Account Compression program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE Instructions SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "RemoveProfileDataArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "verifyProfileEntityData",
+      "docs": [
+        "This function verifies profile entity data in the HPL Hive Control program."
+      ],
+      "accounts": [
+        {
+          "name": "project",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The project state account"]
+        },
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["User's profile for the provided project"]
+        },
+        {
+          "name": "merkleTree",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] The merkle tree account"]
+        },
+        {
+          "name": "delegateAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "isOptional": true,
+          "docs": ["[Option] delegate authority account"]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": ["The authority (or delegate) of the project."]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": ["The wallet that pays for the rent."]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["The system program."]
+        },
+        {
+          "name": "compressionProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["SPL Account Compression program"]
+        },
+        {
+          "name": "logWrapper",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NO OP program"]
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE SYSVAR CLOCK"]
+        },
+        {
+          "name": "rentSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE RENT SYSVAR"]
+        },
+        {
+          "name": "instructionsSysvar",
+          "isMut": false,
+          "isSigner": false,
+          "docs": ["NATIVE Instructions SYSVAR"]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": ["The vault that collects the fees."]
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "VerifyProfileEntityDataArgs"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "DelegateAuthority",
+      "docs": [
+        "Account representing delegated authority for a project.",
+        "This account stores permissions granted to accounts to perform certain actions on behalf of the project authority.",
+        "PDA: [ 'delegate_authority', project, authority, delegate ]",
+        "Category: delegate_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "project",
+            "docs": [
+              "Public key of the project associated with this delegated authority."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "authority",
+            "docs": ["Public key of the authority getting these permissions."],
+            "type": "publicKey"
+          },
+          {
+            "name": "delegations",
+            "docs": [
+              "List of service delegations, each specifying the program and its permissions."
+            ],
+            "type": {
+              "vec": {
+                "defined": "ServiceDelegation"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddressContainer",
+      "docs": [
+        "Account representing a container for storing addresses.",
+        "Addresses are associated with a particular role, specified by `AddressContainerRole`.",
+        "PDA: [ 'address_container', role, associated_with, index ]",
+        "Category: indexing_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "associatedWith",
+            "docs": [
+              "Public key of the account associated with this address container."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "role",
+            "docs": [
+              "Role of this address container, specifying its purpose (e.g., ProjectMints)."
+            ],
+            "type": {
+              "defined": "AddressContainerRole"
+            }
+          },
+          {
+            "name": "addresses",
+            "docs": [
+              "List of public keys (addresses) stored in this container."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Project",
+      "docs": [
+        "Project State Account",
+        "This account represents the cenntralized state and confnigurations of an NFT project on the Honeycomb Protocol.",
+        "PDA: ['project', key]",
+        "Category: project_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "docs": ["Public key of the authority controlling this project."],
+            "type": "publicKey"
+          },
+          {
+            "name": "key",
+            "docs": ["Unique public key identifier for this project account."],
+            "type": "publicKey"
+          },
+          {
+            "name": "driver",
+            "docs": [
+              "Public key of the driver wallet having partial authority of this project."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "name",
+            "docs": ["Name of the project."],
+            "type": "string"
+          },
+          {
+            "name": "mintIndexing",
+            "docs": [
+              "Indexing information for the associated mints of the NFT Collection."
+            ],
+            "type": {
+              "defined": "Indexing"
+            }
+          },
+          {
+            "name": "services",
+            "docs": [
+              "List of honeycomb services associated with this project."
+            ],
+            "type": {
+              "vec": {
+                "defined": "Service"
+              }
+            }
+          },
+          {
+            "name": "collections",
+            "docs": [
+              "List of nft collections (public keys) associated with this project."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "creators",
+            "docs": [
+              "List of public keys representing the nft creators involved in this project."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "allowedPrograms",
+            "docs": [
+              "List of allowed programs that can interact (CPI) with this project.",
+              "If it's emmpty only honeycomb programs will be able to perform CPI with this project."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "profileDataConfig",
+            "docs": [
+              "Configuration for profile data stored as key-value pairs in a HashMap."
+            ],
+            "type": {
+              "hashMap": [
+                "string",
+                {
+                  "defined": "ProfileDataType"
+                }
+              ]
+            }
+          },
+          {
+            "name": "merkleTrees",
+            "docs": [
+              "List of public keys representing the nft creators involved in this project."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "docs": [
+        "User State Account -",
+        "This account represents the state of a user on the Solana blockchain.",
+        "PDA: [ 'user', username ]",
+        "Category: user_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "primaryWallet",
+            "docs": [
+              "Public key of the primary wallet associated with the user."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "secondaryWallets",
+            "docs": [
+              "List of public keys representing secondary wallets associated with the user."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "username",
+            "docs": ["Username of the user."],
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "docs": ["Full name of the user."],
+            "type": "string"
+          },
+          {
+            "name": "bio",
+            "docs": ["User's biography or description."],
+            "type": "string"
+          },
+          {
+            "name": "pfp",
+            "docs": ["URL of the user's profile picture (pfp)."],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WalletResolver",
+      "docs": [
+        "Account representing a wallet resolver.",
+        "PDA: [ 'wallet_resolver', wallet ]",
+        "Category: user_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "user",
+            "docs": [
+              "Public key of the user associated with this wallet resolver."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "wallet",
+            "docs": ["Public key of the wallet being resolved."],
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Profile",
+      "docs": [
+        "Account representing user profile information.",
+        "This account stores a user's profile data associated with a specific project.",
+        "PDA: [ 'profile', project, user, identity ]",
+        "Category: user_state"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": ["Bump value used for PDA."],
+            "type": "u8"
+          },
+          {
+            "name": "project",
+            "docs": ["Public key of the project associated with this profile."],
+            "type": "publicKey"
+          },
+          {
+            "name": "user",
+            "docs": ["Public key of the user associated with this profile."],
+            "type": "publicKey"
+          },
+          {
+            "name": "identity",
+            "docs": [
+              "Identity of the profile, which can be Main, Wallet, or a custom Value."
+            ],
+            "type": {
+              "defined": "ProfileIdentity"
+            }
+          },
+          {
+            "name": "data",
+            "docs": ["HashMap storing profile data as key-value pairs."],
+            "type": {
+              "hashMap": [
+                "string",
+                {
+                  "defined": "ProfileData"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PublicInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "info",
+            "type": {
+              "hashMap": [
+                "string",
+                {
+                  "defined": "Info"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateDelegateAuthorityArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "delegations",
+            "type": {
+              "option": {
+                "vec": {
+                  "defined": "ServiceDelegation"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddRemoveDelegationArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "delegation",
+            "type": {
+              "option": {
+                "defined": "ServiceDelegation"
+              }
+            }
+          },
+          {
+            "name": "index",
+            "type": {
+              "option": "u8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateProfileArgs",
+      "docs": [
+        "Structure representing the arguments for creating a new profile on the chain."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "identity",
+            "docs": [
+              "Identity of the profile being created. It can be one of the following variants:",
+              "- `ProfileIdentity::Main`: Represents the main identity of the profile.",
+              "- `ProfileIdentity::Wallet`: Represents an identity associated with a specific wallet.",
+              "- `ProfileIdentity::Value`: Represents an identity with a custom string value."
+            ],
+            "type": {
+              "defined": "ProfileIdentity"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddProfileDataArgs",
+      "docs": [
+        "Structure representing the arguments for adding profile data to a profile.",
+        "",
+        "# Fields",
+        "",
+        "- `label`: Label or name of the profile data being added.",
+        "- `value`: Value of the profile data being added. It can be one of the following variants:",
+        "- `None`: If no value is provided.",
+        "- `Some(AddProfileDataArgsValue::SingleValue)`: Represents a single string value.",
+        "- `Some(AddProfileDataArgsValue::MultiValue)`: Represents a list of string values.",
+        "- `Some(AddProfileDataArgsValue::EntityData)`: Represents an entity data node (32-byte array)."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": {
+              "option": {
+                "defined": "AddProfileDataArgsValue"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModifyProfileDataArgs",
+      "docs": [
+        "Structure representing the arguments for modifying profile data in a profile.",
+        "",
+        "# Fields",
+        "",
+        "- `label`: Label or name of the profile data being modified.",
+        "- `value`: Value of the profile data being modified. It can be one of the following variants:",
+        "- `ModifyProfileDataArgsValue::SingleValue`: Represents a single string value.",
+        "- `value`: The updated single string value for the profile data.",
+        "- `ModifyProfileDataArgsValue::MultiValue`: Represents a list of string values.",
+        "- `value`: The updated list of string values for the profile data.",
+        "- `ModifyProfileDataArgsValue::EntityData`: Represents an updated entity data node (32-byte array) in a Merkle tree.",
+        "- `root`: The 32-byte array representing the Merkle root hash.",
+        "- `leaf`: The original 32-byte array representing the Merkle leaf hash to be updated.",
+        "- `updated_leaf`: The updated 32-byte array representing the new Merkle leaf hash.",
+        "- `leaf_index`: The index of the leaf node to be updated in the Merkle tree."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": {
+              "defined": "ModifyProfileDataArgsValue"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveProfileDataArgs",
+      "docs": [
+        "Structure representing the arguments for removing profile data from a profile.",
+        "",
+        "# Fields",
+        "",
+        "- `label`: Label or name of the profile data being removed.",
+        "- `value`: Value of the profile data being removed. It can be one of the following variants:",
+        "- `RemoveProfileDataArgsValue::SingleValue`: Represents a single string value to be removed.",
+        "- `RemoveProfileDataArgsValue::MultiValue`: Represents a list of string values to be removed.",
+        "- `RemoveProfileDataArgsValue::EntityData`: Represents an entity data node (32-byte array) in a Merkle tree to be removed.",
+        "- `root`: The 32-byte array representing the Merkle root hash.",
+        "- `leaf`: The 32-byte array representing the Merkle leaf hash to be removed.",
+        "- `leaf_index`: The index of the leaf node to be removed in the Merkle tree.",
+        "- `RemoveProfileDataArgsValue::Entity`: Represents a complete entity profile to be removed."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": {
+              "defined": "RemoveProfileDataArgsValue"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "VerifyProfileEntityDataArgs",
+      "docs": [
+        "Structure representing the arguments for verifying profile entity data in a profile.",
+        "",
+        "# Fields",
+        "",
+        "- `root`: The 32-byte array representing the Merkle root hash of the profile.",
+        "- `leaf`: The 32-byte array representing the Merkle leaf hash to be verified.",
+        "- `leaf_index`: The index of the leaf node to be verified in the Merkle tree."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "root",
+            "type": {
+              "array": ["u8", 32]
+            }
+          },
+          {
+            "name": "leaf",
+            "type": {
+              "array": ["u8", 32]
+            }
+          },
+          {
+            "name": "leafIndex",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateProjectArgs",
+      "docs": [
+        "Structure representing the arguments for creating a new project.",
+        "",
+        "# Fields",
+        "",
+        "- `name`: The name of the project.",
+        "- `expected_mint_addresses`: The expected number of mint addresses for the project.",
+        "- `driver`: [Option] Public key representing the driver authority for the project.",
+        "- `allowed_programs`: [Option]<[Vec]> of Public keys representing the allowed programs that can interact (CPI) with project.",
+        "- `collections`: [Option]<[Vec]> of Public keys representing the nft collections associated with the project.",
+        "- `creators`: [Option]<[Vec]> of Public keys representing the nft creators associated with the project."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "expectedMintAddresses",
+            "type": "u64"
+          },
+          {
+            "name": "driver",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "allowedPrograms",
+            "type": {
+              "option": {
+                "vec": "publicKey"
+              }
+            }
+          },
+          {
+            "name": "collections",
+            "type": {
+              "option": {
+                "vec": "publicKey"
+              }
+            }
+          },
+          {
+            "name": "creators",
+            "type": {
+              "option": {
+                "vec": "publicKey"
+              }
+            }
+          },
+          {
+            "name": "merkleTrees",
+            "type": {
+              "option": {
+                "vec": "publicKey"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddRemoveCriteriaArgs",
+      "docs": [
+        "Structure representing the arguments for adding or removing criteria (i.e. collection or creator) in a project.",
+        "",
+        "# Fields",
+        "",
+        "- `allowed_program`: [Option] Public key representing the allowed program to be added or removed as a criterion.",
+        "- `collection`: [Option] Public key representing the collection to be added or removed as a criterion.",
+        "- `creator`: [Option] Public key representing the creator to be added or removed as a criterion.",
+        "- `remove`: [Option] boolean value indicating whether the specified criteria should be added (`false` or `None`) or removed (`true`)."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "allowedProgram",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "collection",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "creator",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "merkleTree",
+            "type": {
+              "option": "publicKey"
+            }
+          },
+          {
+            "name": "remove",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddRemoveServiceArgs",
+      "docs": [
+        "Structure representing the arguments for adding or removing a service in a project.",
+        "",
+        "# Fields",
+        "",
+        "- `service`: A `Service` object representing the service to be added or removed.",
+        "- `remove`: An optional boolean value indicating whether the specified service should be added (`false`) or removed (`true`)."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "service",
+            "type": {
+              "defined": "Service"
+            }
+          },
+          {
+            "name": "remove",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddAddressContainerToProjectArgs",
+      "docs": [
+        "Structure representing the arguments for adding an address container to a project.",
+        "",
+        "# Fields",
+        "",
+        "- `role`: An `AddressContainerRole` enum representing the role of the address container to be added."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "role",
+            "type": {
+              "defined": "AddressContainerRole"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddMintAddressesToAddressContainerArgs",
+      "docs": [
+        "Structure representing the arguments for adding mint addresses to an address container.",
+        "",
+        "# Fields",
+        "",
+        "- `index`: The index of the address container to which the mint addresses will be added.",
+        "- `addresses`: A vector of Solana public keys representing the mint addresses to be added to the address container."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "type": "u8"
+          },
+          {
+            "name": "addresses",
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddRemoveProfileDataConfigArgs",
+      "docs": [
+        "Structure representing the arguments for adding or removing a profile data configuration in a project.",
+        "",
+        "# Fields",
+        "",
+        "- `label`: The label of the profile data configuration to be added or removed.",
+        "- `data_type`: An optional `ProfileDataType` enum representing the data type for the profile data configuration."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "dataType",
+            "type": {
+              "option": {
+                "defined": "ProfileDataType"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetPublicInfoArgs",
+      "docs": [
+        "Structure representing the arguments for setting public information in the project.",
+        "",
+        "# Fields",
+        "",
+        "- `label`: The label of the public information to be set.",
+        "- `value`: The value of the public information to be set."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetAuthDriverArgs",
+      "docs": [
+        "Structure representing the arguments for setting the authentication driver in the project.",
+        "",
+        "# Fields",
+        "",
+        "- `driver_offchain`: The auth off-chain URL."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "driverOffchain",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeUserArgs",
+      "docs": [
+        "Structure representing the arguments for initializing a user.",
+        "",
+        "# Fields",
+        "",
+        "- `username`: The username of the user to be initialized.",
+        "- `name`: The name of the user to be initialized.",
+        "- `bio`: The biography of the user to be initialized.",
+        "- `pfp`: The profile picture URL or identifier of the user to be initialized."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "username",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "bio",
+            "type": "string"
+          },
+          {
+            "name": "pfp",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateUserArgs",
+      "docs": [
+        "Structure representing the arguments for updating a user.",
+        "",
+        "# Fields",
+        "",
+        "- `name`: [Option] new name for the user. If provided, the user's name will be updated.",
+        "- `bio`: [Option] new biography for the user. If provided, the user's biography will be updated.",
+        "- `pfp`: [Option] new profile picture URL for the user. If provided, the user's profile picture will be updated."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": {
+              "option": "string"
+            }
+          },
+          {
+            "name": "bio",
+            "type": {
+              "option": "string"
+            }
+          },
+          {
+            "name": "pfp",
+            "type": {
+              "option": "string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Indexing",
+      "docs": [
+        "Struct representing indexing information.",
+        "This will eventually help to refer to any indexed address with just 2 bytes."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "containers",
+            "docs": [
+              "Number of address containers (address indexers) holding indexed addresses."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "expected",
+            "docs": ["The expected number of indexed addresses."],
+            "type": "u64"
+          },
+          {
+            "name": "indexed",
+            "docs": ["The actual number of indexed addresses."],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IndexedReference",
+      "docs": ["Struct representing an indexed reference."],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "addressContainerIndex",
+            "docs": [
+              "Index of the address container holding the indexed address."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "indexInContainer",
+            "docs": ["Index of the address within the container."],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddProfileDataArgsValue",
+      "docs": [
+        "Enum representing different types of profile data values that can be added to a profile.",
+        "",
+        "# Variants",
+        "",
+        "- `SingleValue`: Represents a single string value.",
+        "- `value`: The single string value to be added to the profile.",
+        "",
+        "- `MultiValue`: Represents a list of string values.",
+        "- `value`: The list of string values to be added to the profile.",
+        "",
+        "- `EntityData`: Represents an merkle tree node (32-byte array).",
+        "- `node`: The 32-byte array representing the entity data node to be added to the cocurret merkle tree."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "MultiValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": {
+                  "vec": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "EntityData",
+            "fields": [
+              {
+                "name": "node",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModifyProfileDataArgsValue",
+      "docs": [
+        "Enum representing different types of profile data values that can be modified in a profile.",
+        "",
+        "# Variants",
+        "",
+        "- `SingleValue`: Represents a single string value.",
+        "- `value`: The updated single string value for the profile data.",
+        "",
+        "- `MultiValue`: Represents a list of string values.",
+        "- `value`: The updated list of string values for the profile data.",
+        "",
+        "- `EntityData`: Represents an updated entity data node (32-byte array) in a Merkle tree.",
+        "- `root`: The 32-byte array representing the Merkle root hash.",
+        "- `leaf`: The original 32-byte array representing the Merkle leaf hash to be updated.",
+        "- `updated_leaf`: The updated 32-byte array representing the new Merkle leaf hash.",
+        "- `leaf_index`: The index of the leaf node to be updated in the Merkle tree."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "MultiValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": {
+                  "vec": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "EntityData",
+            "fields": [
+              {
+                "name": "root",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              },
+              {
+                "name": "leaf",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              },
+              {
+                "name": "updated_leaf",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              },
+              {
+                "name": "leaf_index",
+                "type": "u32"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveProfileDataArgsValue",
+      "docs": [
+        "Enum representing different types of profile data values that can be removed from a profile.",
+        "",
+        "# Variants",
+        "",
+        "- `SingleValue`: Represents a single string value to be removed.",
+        "",
+        "- `MultiValue`: Represents a list of string values to be removed.",
+        "",
+        "- `EntityData`: Represents an entity data node (32-byte array) in a Merkle tree to be removed.",
+        "- `root`: The 32-byte array representing the Merkle root hash.",
+        "- `leaf`: The 32-byte array representing the Merkle leaf hash to be removed.",
+        "- `leaf_index`: The index of the leaf node to be removed in the Merkle tree.",
+        "",
+        "- `Entity`: Represents a complete entity profile to be removed."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue"
+          },
+          {
+            "name": "MultiValue"
+          },
+          {
+            "name": "EntityData",
+            "fields": [
+              {
+                "name": "root",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              },
+              {
+                "name": "leaf",
+                "type": {
+                  "array": ["u8", 32]
+                }
+              },
+              {
+                "name": "leaf_index",
+                "type": "u32"
+              }
+            ]
+          },
+          {
+            "name": "Entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ServiceDelegation",
+      "docs": [
+        "Enum representing different types of service delegations and their permissions."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Master",
+            "fields": [
+              {
+                "name": "permission",
+                "docs": ["The permissions granted to the master program."],
+                "type": {
+                  "defined": "MasterProgramPermission"
+                }
+              }
+            ]
+          },
+          {
+            "name": "AssetHub",
+            "fields": [
+              {
+                "name": "index",
+                "docs": [
+                  "Index of the service in the service vector in the project struct."
+                ],
+                "type": "u8"
+              },
+              {
+                "name": "permission",
+                "docs": ["The permissions granted to the asset hub programs."],
+                "type": {
+                  "defined": "AssetHubPermission"
+                }
+              }
+            ]
+          },
+          {
+            "name": "NectarUtility",
+            "fields": [
+              {
+                "name": "index",
+                "docs": [
+                  "Index of the service in the service vector in the project struct."
+                ],
+                "type": "u8"
+              },
+              {
+                "name": "permission",
+                "docs": [
+                  "The permissions granted to the Nectar utility programs."
+                ],
+                "type": {
+                  "defined": "NectarUtilityPermission"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "MasterProgramPermission",
+      "docs": [
+        "Enum representing different types of permissions for the master program delegation."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "ManageCriterias"
+          },
+          {
+            "name": "ManageServices"
+          },
+          {
+            "name": "ManageIndexing"
+          },
+          {
+            "name": "ManageProfiles"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AssetHubPermission",
+      "docs": [
+        "Enum representing different types of permissions for the asset hub program delegation."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "ManageAssembler"
+          },
+          {
+            "name": "UpdateBlock"
+          },
+          {
+            "name": "UpdateBlockDefinition"
+          },
+          {
+            "name": "UpdateNFT"
+          },
+          {
+            "name": "InitialArtGeneration"
+          },
+          {
+            "name": "ManageAssets"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NectarUtilityPermission",
+      "docs": [
+        "Enum representing different types of permissions for the Nectar utility program delegation."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "ManageStakingPool"
+          },
+          {
+            "name": "WithdrawStakingPoolRewards"
+          },
+          {
+            "name": "ManageMissionPool"
+          },
+          {
+            "name": "WithdrawMissionPoolRewards"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Event",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "NewProject",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateProject",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "AddAddressContainerToProject",
+            "fields": [
+              {
+                "name": "project",
+                "type": "publicKey"
+              },
+              {
+                "name": "container",
+                "type": "publicKey"
+              },
+              {
+                "name": "container_info",
+                "type": "bytes"
+              },
+              {
+                "name": "container_no",
+                "type": "u8"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateAddressContainer",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "NewDelegateAuthority",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateDelegateAuthority",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "NewUser",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateUser",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "NewProfile",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          },
+          {
+            "name": "UpdateProfile",
+            "fields": [
+              {
+                "name": "address",
+                "type": "publicKey"
+              },
+              {
+                "name": "info",
+                "type": "bytes"
+              },
+              {
+                "name": "timestamp",
+                "type": "i64"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddressContainerRole",
+      "docs": [
+        "Enum representing different roles for the `AddressContainer` struct."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "ProjectMints"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProfileDataType",
+      "docs": [
+        "Enum representing the different types of profile data for the `ProfileDataType` field",
+        "in the `Project` struct."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue"
+          },
+          {
+            "name": "MultiValue"
+          },
+          {
+            "name": "Entity",
+            "fields": [
+              {
+                "name": "merkle_tree_max_depth",
+                "docs": ["Maximum depth of the merkle tree."],
+                "type": "u32"
+              },
+              {
+                "name": "merkle_tree_max_buffer_size",
+                "docs": ["Maximum buffer size for the merkle tree."],
+                "type": "u32"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProfileIdentity",
+      "docs": [
+        "Enum representing different types of profile identity.",
+        "A profile can be Main, Wallet, or a custom Value."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Main"
+          },
+          {
+            "name": "Wallet",
+            "fields": [
+              {
+                "name": "key",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "Value",
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProfileData",
+      "docs": [
+        "Enum representing different types of profile data.",
+        "Profile data can be a SingleValue, MultiValue, or an Entity represented by a merkle tree."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "MultiValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": {
+                  "vec": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Entity",
+            "fields": [
+              {
+                "name": "tree",
+                "type": "publicKey"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Assembler",
+            "fields": [
+              {
+                "name": "assembler_id",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "AssetManager",
+            "fields": [
+              {
+                "name": "asset_manager_id",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "TokenManager"
+          },
+          {
+            "name": "Paywall"
+          },
+          {
+            "name": "Staking",
+            "fields": [
+              {
+                "name": "pool_id",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "Missions",
+            "fields": [
+              {
+                "name": "pool_id",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "Raffles",
+            "fields": [
+              {
+                "name": "pool_id",
+                "type": "publicKey"
+              }
+            ]
+          },
+          {
+            "name": "GuildKit"
+          },
+          {
+            "name": "GameState"
+          },
+          {
+            "name": "MatchMaking"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Info",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "SingleValue",
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidProgram",
+      "msg": "Invalid Program"
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "The signer is not authorized to perform this action."
+    },
+    {
+      "code": 6002,
+      "name": "TooManyAddresses",
+      "msg": "Too many addresses provided."
+    },
+    {
+      "code": 6003,
+      "name": "WrongAddressContainerRole",
+      "msg": "Unexpected address container role for the action."
+    },
+    {
+      "code": 6004,
+      "name": "MissingMerkleTree",
+      "msg": "Merkle Tree must be provided in context for this particular action"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidValueType",
+      "msg": "Invalid Value Type"
+    },
+    {
+      "code": 6006,
+      "name": "NonEmptyDataAdd",
+      "msg": "Data non-empty, please use set instead!"
+    }
+  ],
+  "metadata": {
+    "address": "HiveXxaWodSx7aQgKuEyhv6QnWgx4BN4Vc1ZCoFGHV6B",
+    "origin": "anchor",
+    "binaryVersion": "0.26.0",
+    "libVersion": "0.26.0"
+  }
+}
